@@ -12,6 +12,7 @@ class UsersScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: const Text("Users")),
+      //
       body: FutureBuilder<List<UsersModel>>(
         future: APIHandler.getAllUsers(),
         builder: ((context, snapshot) {
@@ -28,9 +29,11 @@ class UsersScreen extends StatelessWidget {
               child: Text("No products has been added yet"),
             );
           }
+          //
           return ListView.builder(
               itemCount: snapshot.data!.length,
               itemBuilder: (ctx, index) {
+                //
                 return ChangeNotifierProvider.value(
                   value: snapshot.data![index],
                   child: const UsersWidget(),

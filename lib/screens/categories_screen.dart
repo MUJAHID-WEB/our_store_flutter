@@ -13,6 +13,7 @@ class CategoriesScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(title: const Text("Categories")),
+        //
         body: FutureBuilder<List<CategoriesModel>>(
             future: APIHandler.getAllCategories(),
             builder: ((context, snapshot) {
@@ -29,6 +30,7 @@ class CategoriesScreen extends StatelessWidget {
                   child: Text("No products has been added yet"),
                 );
               }
+              //
               return GridView.builder(
                   shrinkWrap: true,
                   physics: const NeverScrollableScrollPhysics(),
@@ -40,6 +42,7 @@ class CategoriesScreen extends StatelessWidget {
                     childAspectRatio: 1.2,
                   ),
                   itemBuilder: (ctx, index) {
+                    //
                     return ChangeNotifierProvider.value(
                         value: snapshot.data![index],
                         child: const CategoryWidget());

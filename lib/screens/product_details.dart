@@ -13,6 +13,7 @@ class ProductDetails extends StatefulWidget {
     Key? key,
     required this.id,
   }) : super(key: key);
+  //
   final String id;
   @override
   State<ProductDetails> createState() => _ProductDetailsState();
@@ -20,9 +21,11 @@ class ProductDetails extends StatefulWidget {
 
 class _ProductDetailsState extends State<ProductDetails> {
   final titleStyle = const TextStyle(fontSize: 24, fontWeight: FontWeight.bold);
+  //
   ProductsModel? productsModel;
   bool isError = false;
   String errorStr = "";
+  //
   Future<void> getProductInfo() async {
     try {
       productsModel = await APIHandler.getProductById(id: widget.id);
@@ -72,6 +75,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(
+                                //
                                 productsModel!.category!.name.toString(),
                                 style: const TextStyle(
                                     fontSize: 20, fontWeight: FontWeight.w500),
@@ -86,6 +90,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                                   Flexible(
                                     flex: 3,
                                     child: Text(
+                                      //
                                       productsModel!.title.toString(),
                                       textAlign: TextAlign.start,
                                       style: titleStyle,
@@ -102,6 +107,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                                                   33, 150, 243, 1)),
                                           children: <TextSpan>[
                                             TextSpan(
+                                                //
                                                 text: productsModel!.price
                                                     .toString(),
                                                 style: TextStyle(
@@ -121,10 +127,12 @@ class _ProductDetailsState extends State<ProductDetails> {
                         ),
                         SizedBox(
                           height: size.height * 0.4,
+                          //
                           child: Swiper(
                             itemBuilder: (BuildContext context, int index) {
                               return FancyShimmerImage(
                                 width: double.infinity,
+                                //
                                 imageUrl:
                                     productsModel!.images![index].toString(),
                                 boxFit: BoxFit.fill,
@@ -142,6 +150,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                             ),
                             // control: const SwiperControl(),
                           ),
+                          //
                         ),
                         const SizedBox(
                           height: 18,
@@ -156,6 +165,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                                 height: 18,
                               ),
                               Text(
+                                //
                                 productsModel!.description.toString(),
                                 textAlign: TextAlign.start,
                                 style: const TextStyle(fontSize: 25),

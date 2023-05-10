@@ -12,6 +12,7 @@ class UsersWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
+    //
     final usersModelProvider = Provider.of<UsersModel>(context);
     return ListTile(
       leading: FancyShimmerImage(

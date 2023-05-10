@@ -21,6 +21,7 @@ class FeedsGridWidget extends StatelessWidget {
             childAspectRatio: 0.6),
         itemBuilder: (ctx, index) {
           return ChangeNotifierProvider.value(
+            //
             value: productsList[index],
             child: const FeedsWidget(),
           );

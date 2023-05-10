@@ -12,7 +12,9 @@ class CategoryWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
+    //
     final categoriesModelProvider = Provider.of<CategoriesModel>(context);
+    //
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: Stack(
@@ -27,6 +29,7 @@ class CategoryWidget extends StatelessWidget {
                 color: Colors.red,
                 size: 28,
               ),
+              //
               imageUrl: categoriesModelProvider.image.toString(),
               boxFit: BoxFit.fill,
             ),
@@ -34,6 +37,7 @@ class CategoryWidget extends StatelessWidget {
           Align(
             alignment: Alignment.center,
             child: Text(
+              //
               categoriesModelProvider.name.toString(),
               textAlign: TextAlign.center,
               style: TextStyle(

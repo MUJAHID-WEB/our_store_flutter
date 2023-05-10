@@ -40,6 +40,7 @@ class APIHandler {
     }
   }
 
+//
   static Future<List<ProductsModel>> getAllProducts(
       {required String limit}) async {
     List temp = await getData(
@@ -49,16 +50,19 @@ class APIHandler {
     return ProductsModel.productsFromSnapshot(temp);
   }
 
+//
   static Future<List<CategoriesModel>> getAllCategories() async {
     List temp = await getData(target: "categories");
     return CategoriesModel.categoriesFromSnapshot(temp);
   }
 
+//
   static Future<List<UsersModel>> getAllUsers() async {
     List temp = await getData(target: "users");
     return UsersModel.usersFromSnapshot(temp);
   }
 
+//
   static Future<ProductsModel> getProductById({required String id}) async {
     try {
       var uri = Uri.https(
@@ -74,7 +78,7 @@ class APIHandler {
       }
       return ProductsModel.fromJson(data);
     } catch (error) {
-      log("an error occured while getting product info $error");
+      log("an error occurred while getting product info $error");
       throw error.toString();
     }
   }

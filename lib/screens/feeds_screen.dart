@@ -63,20 +63,22 @@ class _FeedsScreenState extends State<FeedsScreen> {
               child: Column(
                 children: [
                   GridView.builder(
-                      shrinkWrap: true,
-                      physics: const NeverScrollableScrollPhysics(),
-                      itemCount: productsList.length,
-                      gridDelegate:
-                          const SliverGridDelegateWithFixedCrossAxisCount(
-                              crossAxisCount: 2,
-                              crossAxisSpacing: 0.0,
-                              mainAxisSpacing: 0.0,
-                              childAspectRatio: 0.7),
-                      itemBuilder: (ctx, index) {
-                        return ChangeNotifierProvider.value(
-                            value: productsList[index],
-                            child: const FeedsWidget());
-                      }),
+                    shrinkWrap: true,
+                    physics: const NeverScrollableScrollPhysics(),
+                    itemCount: productsList.length,
+                    gridDelegate:
+                        const SliverGridDelegateWithFixedCrossAxisCount(
+                            crossAxisCount: 2,
+                            crossAxisSpacing: 0.0,
+                            mainAxisSpacing: 0.0,
+                            childAspectRatio: 0.7),
+                    itemBuilder: (ctx, index) {
+                      return ChangeNotifierProvider.value(
+                          //
+                          value: productsList[index],
+                          child: const FeedsWidget());
+                    },
+                  ),
                   if (_isLoading)
                     const Center(child: CircularProgressIndicator()),
                 ],
